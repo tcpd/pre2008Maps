@@ -1,0 +1,10 @@
+version: "2"
+services:
+  shiny:
+    container_name: pre2008_shiny
+    build : .
+    ports:
+      - '3839:3838'
+    volumes:
+      - './data/:/srv/shiny-server/data/'
+      - './Maps/:/srv/shiny-server/Maps/'
