@@ -70,9 +70,15 @@ server <- function(input, output) {
     new.party.pal = reactive({
         data = map.data()
         idx = which(!data$Party %in% party.pal$Party)
-        new.parties = unique(data$Party[idx])
-        new.colors = distinctColorPalette(length(new.parties))
-        return(rbind(party.pal,data.frame(Party=new.parties,Color=new.colors)))
+        if(length(idx)==0){
+            return(party.pal)
+        }
+        else{
+            new.parties = unique(data$Party[idx])
+            new.colors = distinctColorPalette(length(new.parties))
+            return(rbind(party.pal,data.frame(Party=new.parties,Color=new.colors)))
+        }
+        
     })
 
 
