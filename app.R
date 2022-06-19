@@ -27,7 +27,7 @@ make_map_party <- function(shape,data,var, pal,inp_title){
     shape_as  <- merge(shape_as,pal,by.x=var,by.y=var,all.x=T)
     idx = which(!is.na(shape_as$Color))
     shape_as <- shape_as[idx,]
-    shape_as$popup <- paste(shape_as$AC_NO,shape_as$AC_NAME,shape_as[[var]],shape_as[["Color"]],sep = ", ")
+    shape_as$popup <- paste(shape_as$AC_NO,shape_as$AC_NAME,shape_as$Constituency_Name,shape_as[[var]],shape_as[["Color"]],sep = ", ")
     shape_as$x <- shape_as[[var]]
 
     cols <- shape_as$Color
